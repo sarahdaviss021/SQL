@@ -1,0 +1,29 @@
+--MY FIRST SQL PROGRAM IN CERTIFICATION COURSE
+
+--Create a grocery store database
+CREATE TABLE store ( id INTEGER PRIMARY KEY, name TEXT, quantity INTEGER,price INTEGER, aisle INTEGER);
+SELECT * FROM store;
+ INSERT INTO store VALUES (1, "ice cream", 10,5.99,2);
+ INSERT INTO store VALUES(2,"bread",20,3.99,3);
+INSERT INTO store VALUES(3,"cheese",12,3,3);
+INSERT INTO store VALUES(4,"milk",2,5,1);
+INSERT INTO store VALUES(5,"eggs",1,8.99,1);
+INSERT INTO store VALUES(6,"soup",15,2,4);
+INSERT INTO store VALUES(7,"ketchup",13,3,7);
+INSERT INTO store VALUES(8,"gum",5,1.99,6);
+INSERT INTO store VALUES(9,"yogurt",3,4,1);
+INSERT INTO store VALUES(10,"mints",2,1,6);
+INSERT INTO store VALUES(11,"garbage bags",10,7,9);
+INSERT INTO store VALUES(12,"toilet cleaner",4,7,9);
+INSERT INTO store VALUES(13,"tape",15,3.99,10);
+INSERT INTO store VALUES(14,"paper",29,2,10);
+INSERT INTO store VALUES(15,"pens",16,6,10);
+
+--display ordered by price
+SELECT * FROM store ORDER BY price;
+
+--display where quantity is greater than or equal to zero
+SELECT * FROM store WHERE quantity >=2;
+
+--display sum of all quantities of groceries in the store
+SELECT SUM(quantity) FROM store;
