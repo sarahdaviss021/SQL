@@ -1,0 +1,49 @@
+/* NCT KPOP database for Khan Academy Project, data was found and filtered here: https://www.kaggle.com/datasets/kimjihoo/kpopdb */
+
+/* Creating table for idols, using only their stage name */
+CREATE TABLE idol (id INTEGER PRIMARY KEY AUTOINCREMENT, stage_name TEXT);
+
+INSERT INTO idol VALUES(1,"Chenle");
+INSERT INTO idol VALUES(2,"Doyong");
+INSERT INTO idol VALUES(3,"Haechan");
+INSERT INTO idol VALUES(4,"Jaehyun");
+INSERT INTO idol VALUES(5,"Jaemin");
+INSERT INTO idol VALUES(6,"Jeno");
+INSERT INTO idol VALUES(7,"Jisung");
+INSERT INTO idol VALUES(8,"Johnny");
+INSERT INTO idol VALUES(9,"Jungwoo");
+INSERT INTO idol VALUES(10,"Kun");
+INSERT INTO idol VALUES(11,"Lucas");
+INSERT INTO idol VALUES(12,"Mark");
+INSERT INTO idol VALUES(13,"Renjun");
+INSERT INTO idol VALUES(14,"Taeil");
+INSERT INTO idol VALUES(15,"Taeyong");
+INSERT INTO idol VALUES(16,"Ten");
+INSERT INTO idol VALUES(17,"Winwin");
+INSERT INTO idol VALUES(18,"Yuta");
+
+/* Creating table for groups idols are in including the main group they perform with and the number of groups they are in */
+CREATE TABLE groups (id INTEGER PRIMARY KEY AUTOINCREMENT, main_group text, num_groups INTEGER);
+
+INSERT INTO groups VALUES(1,"NCT Dream",1);
+INSERT INTO groups VALUES(2,"NCT 127",2);
+INSERT INTO groups VALUES(3,"NCT Dream",2);
+INSERT INTO groups VALUES(4,"NCT 127",2);
+INSERT INTO groups VALUES(5,"NCT Dream",1);
+INSERT INTO groups VALUES(6,"NCT Dream",1);
+INSERT INTO groups VALUES(7,"NCT Dream",1);
+INSERT INTO groups VALUES(8,"NCT 127",1);
+INSERT INTO groups VALUES(9,"NCT",0);
+INSERT INTO groups VALUES(10,"NCT",0);
+INSERT INTO groups VALUES(11,"SuperM",1);
+INSERT INTO groups VALUES(12,"NCT Dream",4);
+INSERT INTO groups VALUES(13,"NCT Dream",1);
+INSERT INTO groups VALUES(14,"NCT 127",2);
+INSERT INTO groups VALUES(15,"NCT 127",3);
+INSERT INTO groups VALUES(16,"SuperM",2);
+INSERT INTO groups VALUES(17,"NCT 127",1);
+INSERT INTO groups VALUES(18,"NCT 127",1);
+
+/*Combing the idol and groups tables using a join clause, matching the id primary key to both tables and outputting that data */
+SELECT idol.stage_name as idol, idol.id, main_group, num_groups
+FROM idol LEFT OUTER JOIN groups ON idol.id=groups.id ORDER BY groups.num_groups DESC;
